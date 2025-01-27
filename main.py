@@ -47,3 +47,12 @@ async def add_livro(livro: Livro):
     }
     books.append(new_book)
     return {"mensagem: livro adicionado com sucesso!, livro": new_book}
+
+
+
+@app.delete("/livro/{id}")
+def delete_book(id:int):
+    for livro in books:
+        if livro["Id"] == id:
+            books.remove(livro)
+            return {"mensagem": "Livro removido com sucesso!"}
